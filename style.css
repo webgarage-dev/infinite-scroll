@@ -14,10 +14,9 @@ body {
 
 h1 {
     text-align: center;
-    margin-top: 1.5rem;
-    margin-bottom: 1.0rem;
+    margin: 1.5rem auto;
     font-size: 3rem;
-    letter-spacing: 0.125rem;
+    letter-spacing: 0.25rem;
 }
 
 .loader {
@@ -34,4 +33,23 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.image-container {
+    margin: 0.5rem 25%;
+}
+
+.image-container img {
+    width: 100%;
+    margin-top: 0.25rem;
+}
+
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+        margin: 0.75rem auto;
+    }
+    .image-container {
+        margin: 0.5rem;
+    }
 }
