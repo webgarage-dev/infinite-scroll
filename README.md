@@ -1,2 +1,3 @@
 # infinite-scroll
-Infinite scroll using the Unsplash API
+
+Infinite scrolling using the Unsplash API
