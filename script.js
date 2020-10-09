@@ -1,6 +1,5 @@
-const imageCount = 10;
-const apiKey = '';
-const apiURL = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${imageCount}`;
+/* Uses private API */
+const apiURL = `https://api.webgarage.dev/uninfscroll/photos/get`;
 
 function getPhotos() {
     fetch(apiURL)
