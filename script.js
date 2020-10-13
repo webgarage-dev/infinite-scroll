@@ -8,6 +8,7 @@ const loader = document.getElementById("loader");
 /* Global Photo Array */
 let photosArray = [];
 
+/* Set up attributes for element*/
 function setAttributes(element, attributes) {
     for (const key in attributes) {
         element.setAttribute(key, attributes[key]);
