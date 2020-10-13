@@ -8,16 +8,30 @@ const loader = document.getElementById("loader");
 /* Global Photo Array */
 let photosArray = [];
 
+function setAttributes(element, attributes) {
+    for (const key in attributes) {
+        element.setAttribute(key, attributes[key]);
+    }
+}
+
 /* Create elements for links and photos and add to DOM */
 function displayPhotos() {
     photosArray.forEach(photo => {
         const item = document.createElement("a");
-        item.setAttribute("href", photo.links.html);
-        item.setAttribute("target", "_blank");
         const img = document.createElement("img");
-        img.setAttribute("src", photo.urls.regular);
-        img.setAttribute("alt", photo.alt_description);
-        img.setAttribute("title", photo.alt_description);
+        setAttributes(
+            item,
+            {
+                "href": photo.links.html,
+                "target": "_blank"
+            });
+        setAttributes(
+            img,
+            {
+                "src": photo.urls.regular,
+                "alt": photo.alt_description,
+                "title": photo.alt_description
+            });
         item.appendChild(img);
         imageContainer.appendChild(item);
     });
