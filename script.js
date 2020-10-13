@@ -8,6 +8,19 @@ const loader = document.getElementById("loader");
 /* Global Photo Array */
 let photosArray = [];
 
+let ready = false;
+let imagesLoaded = 0;
+let totalImages = 0;
+
+
+/* Set up listener for every image */
+function imageLoaded() {
+    imagesLoaded++;
+    if (imagesLoaded === totalImages) {
+        ready = true;
+    }
+}
+
 /* Set up attributes for element*/
 function setAttributes(element, attributes) {
     for (const key in attributes) {
@@ -17,6 +30,7 @@ function setAttributes(element, attributes) {
 
 /* Create elements for links and photos and add to DOM */
 function displayPhotos() {
+    totalImages = photosArray.length;
     photosArray.forEach(photo => {
         const item = document.createElement("a");
         const img = document.createElement("img");
@@ -33,6 +47,7 @@ function displayPhotos() {
                 "alt": photo.alt_description,
                 "title": photo.alt_description
             });
+        img.addEventListener("load", imageLoaded)
         item.appendChild(img);
         imageContainer.appendChild(item);
     });
@@ -52,5 +67,14 @@ function getPhotos() {
             console.log("Something goes wrong..."+error);
         })
 }
+
+/* Set up listener for scroll event */
+window.addEventListener("scroll", () => {
+    if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 1000) && ready) {
+        ready = false;
+        imagesLoaded = 0;
+        getPhotos();
+    }
+});
 
 getPhotos();
