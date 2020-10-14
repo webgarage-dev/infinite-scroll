@@ -1,5 +1,5 @@
 /* Uses private API */
-const apiURL = `https://api.webgarage.dev/uninfscroll/photos/get`;
+const apiURL = `https://api.webgarage.dev/uninfscroll/photos/get/30`;
 
 /* HTML elements*/
 const imageContainer = document.getElementById("image-container");
